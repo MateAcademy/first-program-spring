@@ -7,13 +7,13 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="testBean"
-          class="ua.klunniy.spring.TestBean">
-        <constructor-arg value="hello world"/>
+    <bean id="musicBean"
+          class="ua.klunniy.spring.model.impl.RapMusic">
+<!--        <constructor-arg value="hello world"/>-->
     </bean>
 
-    <bean id="testBean2"
-          class="ua.klunniy.spring.TestBean">
+    <bean id="musicPlayer" class="ua.klunniy.spring.controller.MusicPlayer">
+        <constructor-arg ref="musicBean"/>
     </bean>
 
 </beans>
