@@ -6,8 +6,28 @@ import ua.klunniy.spring.model.Music;
  * @author Serhii Klunniy
  */
 public class RapMusic implements Music {
+    private int id;
+    private String text;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
     @Override
     public String getSong() {
-        return "песня rap музыки";
+        System.out.println("id=" + id + ", text=" + text);
+        return "песня rap музыки\n";
     }
 }

@@ -1,19 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-    <beans  xmlns="http://www.springframework.org/schema/beans"
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xmlns:context="http://www.springframework.org/schema/context"
-            xsi:schemaLocation="http://www.springframework.org/schema/beans
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="musicBean"
+    <context:property-placeholder location="classpath:properties.yaml" />
+
+    <bean id="musicBean1"
           class="ua.klunniy.spring.model.impl.RapMusic">
 <!--        <constructor-arg value="hello world"/>-->
+        <property name="id" value="${rapMusic.id}"/>
+        <property name="text" value="${rapMusic.text}"/>
+    </bean>
+
+    <bean id="musicBean2"
+          class="ua.klunniy.spring.model.impl.PopMusic">
+        <!--        <constructor-arg value="hello world"/>-->
+        <property name="id" value="${popMusic.id}"/>
+        <property name="text" value="${popMusic.text}"/>
+    </bean>
+
+    <bean id="musicBean3"
+          class="ua.klunniy.spring.model.impl.ClassicalMusic">
+        <!--        <constructor-arg value="hello world"/>-->
+        <property name="id" value="${classicalMusic.id}"/>
+        <property name="text" value="${classicalMusic.text}"/>
     </bean>
 
     <bean id="musicPlayer" class="ua.klunniy.spring.controller.MusicPlayer">
-        <constructor-arg ref="musicBean"/>
+<!--        <constructor-arg ref="musicBean"/>-->
+<!--        <property name="music" ref="musicBean2"/>-->
+        <property name="music">
+            <list>
+                <ref bean="musicBean1" />
+                <ref bean="musicBean2" />
+                <ref bean="musicBean3" />
+            </list>
+        </property>
+
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
 
 </beans>
