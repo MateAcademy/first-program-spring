@@ -6,7 +6,6 @@ import ua.klunniy.spring.model.Music;
  * @author Serhii Klunniy
  */
 public class ClassicalMusic implements Music {
-
     private int id;
     private String text;
 

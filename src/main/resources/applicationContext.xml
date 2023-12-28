@@ -31,7 +31,9 @@
         <property name="text" value="${classicalMusic.text}"/>
     </bean>
 
-    <bean id="musicPlayer" class="ua.klunniy.spring.controller.MusicPlayer">
+    <bean id="musicPlayer" class="ua.klunniy.spring.controller.MusicPlayer" scope="singleton"
+    init-method="initMethod"
+    destroy-method="destroyMethod">
 <!--        <constructor-arg ref="musicBean"/>-->
 <!--        <property name="music" ref="musicBean2"/>-->
         <property name="music">

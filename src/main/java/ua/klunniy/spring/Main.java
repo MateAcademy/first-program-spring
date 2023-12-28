@@ -12,11 +12,16 @@ public class Main {
         ClassPathXmlApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        MusicPlayer musicPlayer1 = context.getBean("musicPlayer", MusicPlayer.class);
+        MusicPlayer musicPlayer2 = context.getBean("musicPlayer", MusicPlayer.class);
 
-        musicPlayer.playMusic();
-//        System.out.println(musicPlayer.getName());
-//        System.out.println(musicPlayer.getVolume());
+        musicPlayer1.setVolume(50);
+        System.out.println(musicPlayer1.getVolume());
+
+        System.out.println(musicPlayer2.getVolume());
+
+        boolean rez = musicPlayer1 == musicPlayer2;
+        System.out.println("rez = " + rez);
 
         context.close();
     }

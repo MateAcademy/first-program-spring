@@ -13,6 +13,17 @@ public class MusicPlayer {
     private String name;
     private int volume;
 
+    public MusicPlayer() {
+    }
+
+    public void initMethod() {
+        System.out.println("init method");
+    }
+
+    public void destroyMethod() {
+        System.out.println("destroy method");
+    }
+
     public String getName() {
         return name;
     }
@@ -29,13 +40,6 @@ public class MusicPlayer {
         this.volume = volume;
     }
 
-//    public MusicPlayer(Music music) {
-//        this.music = music;
-//    }
-
-    public MusicPlayer() {
-    }
-
     public List<Music> getMusic() {
         return music;
     }
@@ -48,6 +52,5 @@ public class MusicPlayer {
         for (Music m : music) {
             System.out.println(m.getSong());
         }
-
     }
 }
