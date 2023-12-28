@@ -32,22 +32,22 @@
 <!--        <property name="text" value="${classicalMusic.text}"/>-->
 <!--    </bean>-->
 
-    <bean id="musicPlayer" class="ua.klunniy.spring.controller.MusicPlayer" scope="prototype"
-    init-method="initMethod"
-    destroy-method="destroyMethod"
-    factory-method="getInstance">
+<!--    <bean id="musicPlayer" class="ua.klunniy.spring.controller.MusicPlayer" scope="prototype"-->
+<!--    init-method="initMethod"-->
+<!--    destroy-method="destroyMethod"-->
+<!--    factory-method="getInstance">-->
 <!--        <constructor-arg ref="musicBean"/>-->
 <!--        <property name="music" ref="musicBean2"/>-->
-        <property name="music">
-            <list>
-                <ref bean="musicBean1" />
-                <ref bean="musicBean2" />
-                <ref bean="musicBean3" />
-            </list>
-        </property>
+<!--        <property name="music">-->
+<!--            <list>-->
+<!--                <ref bean="musicBean1" />-->
+<!--                <ref bean="musicBean2" />-->
+<!--                <ref bean="musicBean3" />-->
+<!--            </list>-->
+<!--        </property>-->
 
 <!--        <property name="name" value="${musicPlayer.name}"/>-->
 <!--        <property name="volume" value="${musicPlayer.volume}"/>-->
-    </bean>
+<!--    </bean>-->
 
 </beans>

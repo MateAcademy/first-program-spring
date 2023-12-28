@@ -1,15 +1,23 @@
 package ua.klunniy.spring.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import ua.klunniy.spring.model.Music;
+import ua.klunniy.spring.model.impl.ClassicalMusic;
 
 import java.util.List;
 
 /**
  * @author Serhii Klunniy
  */
+@Component
 public class MusicPlayer {
-    private List<Music> music;
+
+    @Autowired
+    private ClassicalMusic classicalMusic;
+
+//    private List<Music> music;
 
     @Value("${musicPlayer.name}")
     private String name;
@@ -17,12 +25,14 @@ public class MusicPlayer {
     @Value("${musicPlayer.volume}")
     private int volume;
 
-    private MusicPlayer () {}
-
-    public static MusicPlayer getInstance() {
-        System.out.println("мы в конструкторе MusicPlayer");
-        return new MusicPlayer();
+    public MusicPlayer(ClassicalMusic classicalMusic) {
+        this.classicalMusic = classicalMusic;
     }
+
+//    public static MusicPlayer getInstance() {
+//        System.out.println("мы в конструкторе MusicPlayer");
+//        return new MusicPlayer();
+//    }
 
     public void initMethod() {
         System.out.println("init method");
@@ -48,17 +58,18 @@ public class MusicPlayer {
         this.volume = volume;
     }
 
-    public List<Music> getMusic() {
-        return music;
-    }
-
-    public void setMusic(List<Music> music) {
-        this.music = music;
-    }
+//    public List<Music> getMusic() {
+//        return music;
+//    }
+//
+//    public void setMusic(List<Music> music) {
+//        this.music = music;
+//    }
 
     public void playMusic() {
-        for (Music m : music) {
-            System.out.println(m.getSong());
-        }
+//        for (Music m : music) {
+//            System.out.println(m.getSong());
+//        }
+        System.out.println(classicalMusic.getSong());
     }
 }

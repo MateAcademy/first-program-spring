@@ -36,7 +36,7 @@ public class ClassicalMusic implements Music {
 
     @Override
     public String getSong() {
-        System.out.println("id=" + id + ", text=" + text);
+//        System.out.println("id=" + id + ", text=" + text);
         return "классическая песня\n";
     }
 }
