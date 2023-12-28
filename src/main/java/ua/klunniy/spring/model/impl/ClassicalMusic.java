@@ -1,13 +1,22 @@
 package ua.klunniy.spring.model.impl;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import ua.klunniy.spring.model.Music;
 
 /**
  * @author Serhii Klunniy
  */
+@Component("musicBean1")
 public class ClassicalMusic implements Music {
+    @Value("${classicalMusic.id}")
     private int id;
+
+    @Value("${classicalMusic.text}")
     private String text;
+
+    private ClassicalMusic() {
+    }
 
     public int getId() {
         return id;

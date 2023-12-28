@@ -1,5 +1,6 @@
 package ua.klunniy.spring.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import ua.klunniy.spring.model.Music;
 
 import java.util.List;
@@ -10,10 +11,17 @@ import java.util.List;
 public class MusicPlayer {
     private List<Music> music;
 
+    @Value("${musicPlayer.name}")
     private String name;
+
+    @Value("${musicPlayer.volume}")
     private int volume;
 
-    public MusicPlayer() {
+    private MusicPlayer () {}
+
+    public static MusicPlayer getInstance() {
+        System.out.println("мы в конструкторе MusicPlayer");
+        return new MusicPlayer();
     }
 
     public void initMethod() {

@@ -1,13 +1,23 @@
 package ua.klunniy.spring.model.impl;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import ua.klunniy.spring.model.Music;
 
 /**
  * @author Serhii Klunniy
  */
+@Component("musicBean3")
 public class RapMusic implements Music {
+
+    @Value("${rapMusic.id}")
     private int id;
+
+    @Value("${rapMusic.text}")
     private String text;
+
+    private RapMusic() {
+    }
 
     public int getId() {
         return id;
